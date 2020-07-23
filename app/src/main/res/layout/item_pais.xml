@@ -29,7 +29,7 @@
                 android:padding="4dp" />
 
             <TextView
-                android:id="@+id/txt_nom_pais"
+                android:id="@+id/lbl_nom_pais"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nombre" />
