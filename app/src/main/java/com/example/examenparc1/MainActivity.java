@@ -5,7 +5,9 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.examenparc1.Model.pais;
 import com.example.examenparc1.Model.adaptadorPs;
@@ -59,4 +61,11 @@ public class MainActivity extends AppCompatActivity implements Asynchtask {
         adaptadorPs adapatorHortalizas = new adaptadorPs(this, lstProductos);
         recyclerview.setAdapter(adapatorHortalizas);
     }
+    public void onClick(View view) {
+
+        Intent intent = new Intent(this, MainActivity2.class);
+        startActivity(intent);
+
+    }
+
 }

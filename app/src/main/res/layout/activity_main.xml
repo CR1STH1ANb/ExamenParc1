@@ -6,10 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|right"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="21dp"
+        android:contentDescription="NavView"
+        android:onClick="onClick"
+        app:srcCompat="@drawable/iconnext" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvListaHortalizas"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="632dp"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp" />
 
