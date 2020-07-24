@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.example.examenparc1.Model.Pais;
-import com.example.examenparc1.Model.adaptadorPais;
+import com.example.examenparc1.Model.pais;
+import com.example.examenparc1.Model.adaptadorPs;
 import com.example.examenparc1.WebService.Asynchtask;
 import com.example.examenparc1.WebService.WebService;
 
@@ -33,15 +33,15 @@ public class MainActivity extends AppCompatActivity implements Asynchtask {
 
         recyclerview=(RecyclerView)findViewById(R.id.rcvListaHortalizas);
 
+
         recyclerview.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
+
 
         recyclerview.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
 
-
-
         Map<String, String> datos = new HashMap<>();
 
-        WebService ws= new WebService("https://restcountries.eu/rest/v2/lang/es",datos,
+        WebService ws= new WebService("https://restcountries.eu/rest/v2/all",datos,
                 MainActivity.this, (Asynchtask) MainActivity.this);
 
         ws.execute("GET");
@@ -50,13 +50,13 @@ public class MainActivity extends AppCompatActivity implements Asynchtask {
     @Override
     public void processFinish(String result) throws JSONException {
         JSONArray JSONlistaProductos = new JSONArray(result);
-        ArrayList<Pais> lstProductos=new ArrayList<Pais>();
+        ArrayList<pais> lstProductos=new ArrayList<pais>();
 
 
-        lstProductos = Pais.JsonObjectsBuild(JSONlistaProductos);
+        lstProductos = pais.JsonObjectsBuild(JSONlistaProductos);
 
 
-        adaptadorPais adapatorHortalizas = new adaptadorPais(this, lstProductos);
+        adaptadorPs adapatorHortalizas = new adaptadorPs(this, lstProductos);
         recyclerview.setAdapter(adapatorHortalizas);
     }
 }
